@@ -1,7 +1,7 @@
 import { Tab } from '../Tab/Tab';
 
-export const Tabs = ({ tabs, findActive, active }) => {
-  const activeTab = tabs.find(tab => tab.id === active.id);
+export const Tabs = ({ tabs, onTabSelected, activeTabId }) => {
+  const activeTab = tabs.find(tab => tab.id === activeTabId.id);
 
   return (
     <div data-cy="TabsComponent">
@@ -12,8 +12,8 @@ export const Tabs = ({ tabs, findActive, active }) => {
               <Tab
                 tab={tab}
                 key={tab.id}
-                findActive={findActive}
-                active={activeTab || tabs[0]}
+                onTabSelected={onTabSelected}
+                activeTabId={activeTab || tabs[0]}
               />
             );
           })}
@@ -21,7 +21,7 @@ export const Tabs = ({ tabs, findActive, active }) => {
       </div>
 
       <div className="block" data-cy="TabContent">
-        {active.content}
+        {activeTabId.content}
       </div>
     </div>
   );

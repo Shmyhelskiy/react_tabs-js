@@ -20,8 +20,8 @@ export const App = () => {
 
       <Tabs
         tabs={tabs}
-        active={active}
-        findActive={tab => {
+        activeTabId={active}
+        onTabSelected={tab => {
           setActive(tab);
         }}
       />

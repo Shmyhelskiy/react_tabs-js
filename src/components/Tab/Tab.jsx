@@ -1,7 +1,13 @@
-export const Tab = ({ tab, findActive, active }) => {
+export const Tab = ({ tab, onTabSelected, activeTabId }) => {
   return (
-    <li data-cy="Tab" className={tab.id === active.id ? 'is-active' : ''}>
-      <a href={`#${tab.id}`} data-cy="TabLink" onClick={() => findActive(tab)}>
+    <li data-cy="Tab" className={tab.id === activeTabId.id ? 'is-active' : ''}>
+      <a
+        href={`#${tab.id}`}
+        data-cy="TabLink"
+        onClick={() => {
+          return onTabSelected(tab);
+        }}
+      >
         {tab.title}
       </a>
     </li>
